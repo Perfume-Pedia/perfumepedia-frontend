@@ -1,0 +1,38 @@
+.white {
+    background-color: white;
+    padding: 100px;
+    display: flex; /* Flexbox 레이아웃 활성화 */
+    justify-content: space-between; /* 자식 요소들을 양쪽 끝으로 정렬 */
+    align-items: center;
+}
+
+.white .left-section,
+.white .right-section {
+  flex-basis: 50%; /* 각 섹션에게 50%의 공간을 할당 */
+}
+
+.grey .left-section,
+.grey .right-section {
+  flex-basis: 50%; /* 각 섹션에게 50%의 공간을 할당 */
+}
+
+.grey {
+    background-color: lightgrey;
+    padding: 100px;
+    display: flex; /* Flexbox 레이아웃 활성화 */
+    justify-content: space-between; /* 자식 요소들을 양쪽 끝으로 정렬 */
+    align-items: center;
+}
+
+.img {
+    height: auto;
+    width: 400px;
+    margin: 0 10px 0 10px;
+}
+
+.text {
+    align-items: center;
+    padding:  0 0 0 50px;
+    text-align: left;
+    font-size: 25px;
+}
