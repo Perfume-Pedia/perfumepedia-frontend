@@ -21,13 +21,13 @@ export default function Perfumes() {
             <p className='text'>⬅️ 아쿠아 디 파르마 보러가기</p>
         </div>
         <div className="right-section">
-            <img className='img' src="/img/brand_logo/acqua di parma-2.png" alt="Aesop" />
+            <img className='img' src="/img/brand_logo/acqua di parma.png" alt="acqua di parma" />
         </div>
       </section>
 
       <section className="white">
         <div className="left-section">
-          <img className='img' src="/img/brand_logo/byredo.png" alt="Aesop" />
+          <img className='img' src="/img/brand_logo/byredo.png" alt="byredo" />
         </div>
         <div className="right-section">
             <p className='text'>Byredo</p>
@@ -81,13 +81,13 @@ export default function Perfumes() {
             <p className='text'>⬅️ 르 페르소나 보러가기</p>
         </div>
         <div className="right-section">
-            <img className='img' src="/img/brand_logo/le persona.png" alt="Aesop" />
+            <img className='img' src="img/brand_logo/le persona.png" alt="le persona" />
         </div>
       </section>
 
       <section className="white">
         <div className="left-section">
-          <img className='img' src="/img/brand_logo/maison-margiela.png" alt="Aesop" />
+          <img className='img' src="/img/brand_logo/maison-margiela.png" alt="maison-margiela" />
         </div>
         <div className="right-section">
             <p className='text'>Maison-margiela</p>

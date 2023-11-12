@@ -6,8 +6,10 @@ export default function Notes() {
       <section className="notesection">
         {/* 시트러스 */}
         <div className="mainnotes">
-          <img className="mainimg" src="img/citrus.jpg" alt="시트러스" />
           <h3>시트러스 노트</h3>
+          <img className="mainimg" src="img/citrus.jpg" alt="시트러스" />
+          <p>아이 참 상콤해라 너무 상큼해 디져버려</p>
+          {/* <h3>시트러스 노트</h3> */}
         </div>
 
         <div className="subnotes">
@@ -29,8 +31,10 @@ export default function Notes() {
       {/* 플로럴 */}
       <section className="notesection">
         <div className="mainnotes">
-          <img className="mainimg" src="img/floral.jpg" alt="플로럴" />
           <h3>플로럴 노트</h3>
+          <img className="mainimg" src="img/floral.jpg" alt="플로럴" />
+          <p>음 꽃냄새 음 좋다 음 향긋해</p>
+          {/* <h3>플로럴 노트</h3> */}
         </div>
         <div className="subnotescategory">
           <h4>로지 플로럴</h4>
@@ -44,7 +48,7 @@ export default function Notes() {
               <h5>제라늄</h5>
             </div>
             <div className="subimg-contants">
-              <img className="subimg" src="img/peony (2).jpg" alt="피오니" />
+              <img className="subimg" src="img/peony(2).jpg" alt="피오니" />
               <h5>피오니</h5>
             </div>
           </div>
@@ -89,10 +93,10 @@ export default function Notes() {
               <img className="subimg" src="img/carnation.jpg" alt="카네이션" />
               <h5>카네이션</h5>
             </div>
-            <div className="subimg-contants">
+            {/* <div className="subimg-contants">
               <img className="subimg" src="img/wallflower.jpg" alt="월플라워" />
               <h5>월플라워</h5>
-            </div>
+            </div> */}
             <div className="subimg-contants">
               <img className="subimg" src="img/immortelle.jpg" alt="이모르텔" />
               <h5>이모르텔</h5>
