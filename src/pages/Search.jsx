@@ -1,5 +1,6 @@
+// Search.jsx
 import React, { useState, useEffect } from 'react';
-import '../pages/Perfumes.css';
+import { useLocation } from 'react-router-dom';
 import '../pages/Search.css';
 
 export default function Search() {
@@ -7,13 +8,17 @@ export default function Search() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(0);
-    const size = 10; // 페이지당 아이템 수
+    const size = 6;
+    const location = useLocation();
 
     useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const keyword = queryParams.get('keyword') || '';
+
         const fetchData = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch(`http://49.50.162.194:3000/api/search?lastid=${page * size}&size=${size}`);
+                const response = await fetch(`http://perfume-pedia.site:3000/api/search?lastid=0&size=15&keyword=${encodeURIComponent(keyword)}`);
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -29,25 +34,21 @@ export default function Search() {
         };
 
         fetchData();
-    }, [page, size]);
-
-    const handlePageChange = (newPage) => {
-        setPage(newPage);
-    };
+    }, [location]);
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     if (!items.length) return <div>No items found</div>;
 
-    // Pagination logic to show only 3 items per section
     const startIndex = page * size;
-    const selectedItems = items.slice(startIndex, startIndex + 3);
+    const firstSectionItems = items.slice(startIndex, startIndex + 3);
+    const secondSectionItems = items.slice(startIndex + 3, startIndex + 6);
 
     return (
         <div>
-            <section className="white">
+            <section className="onesection">
                 <div className="item-container">
-                    {selectedItems.map((item, index) => (
+                    {firstSectionItems.map((item, index) => (
                         <div key={`${item.perfume_name}-${item.brand_name}-${index}`} className="item">
                             <img src={item.image_path} alt={`${item.perfume_name} by ${item.brand_name}`} className="item-image" />
                             <div className="item-info">
@@ -58,9 +59,9 @@ export default function Search() {
                     ))}
                 </div>
             </section>
-            <section className="grey">
+            <section className="onesection">
                 <div className="item-container">
-                    {selectedItems.map((item, index) => (
+                    {secondSectionItems.map((item, index) => (
                         <div key={`${item.perfume_name}-${item.brand_name}-${index}`} className="item">
                             <img src={item.image_path} alt={`${item.perfume_name} by ${item.brand_name}`} className="item-image" />
                             <div className="item-info">
@@ -72,8 +73,8 @@ export default function Search() {
                 </div>
             </section>
             <div className="pagination">
-                {[...Array(Math.ceil(items.length / 3))].map((_, index) => (
-                    <button key={index} onClick={() => handlePageChange(index)}>
+                {[...Array(Math.ceil(15 / size))].map((_, index) => (
+                    <button key={index} onClick={() => setPage(index)}>
                         {index + 1}
                     </button>
                 ))}
