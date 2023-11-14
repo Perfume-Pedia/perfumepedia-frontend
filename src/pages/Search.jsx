@@ -1,6 +1,5 @@
-// Search.jsx
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../pages/Search.css';
 
 export default function Search() {
@@ -10,6 +9,7 @@ export default function Search() {
     const [page, setPage] = useState(0);
     const size = 6;
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
@@ -36,6 +36,20 @@ export default function Search() {
         fetchData();
     }, [location]);
 
+    const handleItemClick = async (uuid) => {
+        try {
+            const response = await fetch(`http://perfume-pedia.site:3000/api/search/advanced?uuid=${uuid}`);
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            const detailData = await response.json();
+            navigate(`/advanced?uuid=${uuid}`, { state: { detail: detailData.data } });
+        } catch (err) {
+            console.error("Error fetching details:", err);
+            // 여기에서 사용자에게 오류 메시지를 표시할 수 있습니다.
+        }
+    };
+
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     if (!items.length) return <div>No items found</div>;
@@ -49,7 +63,7 @@ export default function Search() {
             <section className="onesection">
                 <div className="item-container">
                     {firstSectionItems.map((item, index) => (
-                        <div key={`${item.perfume_name}-${item.brand_name}-${index}`} className="item">
+                        <div key={`${item.perfume_name}-${item.brand_name}-${index}`} className="item" onClick={() => handleItemClick(item.uuid)} style={{ cursor: 'pointer' }}>
                             <img src={item.image_path} alt={`${item.perfume_name} by ${item.brand_name}`} className="item-image" />
                             <div className="item-info">
                                 <h3>{item.perfume_name}</h3>
@@ -62,7 +76,7 @@ export default function Search() {
             <section className="onesection">
                 <div className="item-container">
                     {secondSectionItems.map((item, index) => (
-                        <div key={`${item.perfume_name}-${item.brand_name}-${index}`} className="item">
+                        <div key={`${item.perfume_name}-${item.brand_name}-${index}`} className="item" onClick={() => handleItemClick(item.uuid)} style={{ cursor: 'pointer' }}>
                             <img src={item.image_path} alt={`${item.perfume_name} by ${item.brand_name}`} className="item-image" />
                             <div className="item-info">
                                 <h3>{item.perfume_name}</h3>

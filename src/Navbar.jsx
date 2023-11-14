@@ -23,7 +23,7 @@ export default function Navbar() {
     return (
         <div className="navbar">
             <div className="navbar-logo">
-                PerfumePedia📓
+                <Link to="/" className="nav-link">PerfumePedia📓</Link>
             </div>
             {!isHome && ( // 홈 화면이 아닐 때만 검색창 표시
                 <form onSubmit={handleSearchSubmit} className="search-form">
