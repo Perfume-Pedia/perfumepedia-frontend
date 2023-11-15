@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../pages/Perfumes.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../pages/Search.css';
 
 export default function Search() {
@@ -7,13 +7,18 @@ export default function Search() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(0);
-    const size = 10; // 페이지당 아이템 수
+    const size = 6;
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const keyword = queryParams.get('keyword') || '';
+
         const fetchData = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch(`http://49.50.162.194:3000/api/search?lastid=${page * size}&size=${size}`);
+                const response = await fetch(`http://perfume-pedia.site:3000/api/search?lastid=0&size=15&keyword=${encodeURIComponent(keyword)}`);
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -29,26 +34,36 @@ export default function Search() {
         };
 
         fetchData();
-    }, [page, size]);
+    }, [location]);
 
-    const handlePageChange = (newPage) => {
-        setPage(newPage);
+    const handleItemClick = async (uuid) => {
+        try {
+            const response = await fetch(`http://perfume-pedia.site:3000/api/search/advanced?uuid=${uuid}`);
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            const detailData = await response.json();
+            navigate(`/advanced?uuid=${uuid}`, { state: { detail: detailData.data } });
+        } catch (err) {
+            console.error("Error fetching details:", err);
+            // 여기에서 사용자에게 오류 메시지를 표시할 수 있습니다.
+        }
     };
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     if (!items.length) return <div>No items found</div>;
 
-    // Pagination logic to show only 3 items per section
     const startIndex = page * size;
-    const selectedItems = items.slice(startIndex, startIndex + 3);
+    const firstSectionItems = items.slice(startIndex, startIndex + 3);
+    const secondSectionItems = items.slice(startIndex + 3, startIndex + 6);
 
     return (
         <div>
-            <section className="white">
+            <section className="onesection">
                 <div className="item-container">
-                    {selectedItems.map((item, index) => (
-                        <div key={`${item.perfume_name}-${item.brand_name}-${index}`} className="item">
+                    {firstSectionItems.map((item, index) => (
+                        <div key={`${item.perfume_name}-${item.brand_name}-${index}`} className="item" onClick={() => handleItemClick(item.uuid)} style={{ cursor: 'pointer' }}>
                             <img src={item.image_path} alt={`${item.perfume_name} by ${item.brand_name}`} className="item-image" />
                             <div className="item-info">
                                 <h3>{item.perfume_name}</h3>
@@ -58,10 +73,10 @@ export default function Search() {
                     ))}
                 </div>
             </section>
-            <section className="grey">
+            <section className="onesection">
                 <div className="item-container">
-                    {selectedItems.map((item, index) => (
-                        <div key={`${item.perfume_name}-${item.brand_name}-${index}`} className="item">
+                    {secondSectionItems.map((item, index) => (
+                        <div key={`${item.perfume_name}-${item.brand_name}-${index}`} className="item" onClick={() => handleItemClick(item.uuid)} style={{ cursor: 'pointer' }}>
                             <img src={item.image_path} alt={`${item.perfume_name} by ${item.brand_name}`} className="item-image" />
                             <div className="item-info">
                                 <h3>{item.perfume_name}</h3>
@@ -72,8 +87,8 @@ export default function Search() {
                 </div>
             </section>
             <div className="pagination">
-                {[...Array(Math.ceil(items.length / 3))].map((_, index) => (
-                    <button key={index} onClick={() => handlePageChange(index)}>
+                {[...Array(Math.ceil(15 / size))].map((_, index) => (
+                    <button key={index} onClick={() => setPage(index)}>
                         {index + 1}
                     </button>
                 ))}
