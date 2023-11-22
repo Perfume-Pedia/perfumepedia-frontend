@@ -1,60 +1,63 @@
 /* 수직으로 섹션 배치 */
+div {
+  white-space: pre-wrap;
+}
 .notesection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto; /*섹션 높이 자동 조절 */
-    text-align: center;
-    flex-direction: column;
-    margin: 30px 20px 20px;
-  }
-  .mainnotes {
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .mainimg {
-    width: 700px;
-    height: auto;
-    object-fit: cover;
-    padding: 10px;
-    max-width: 100%;
-    align-items: center;
-    display: flex;
-  }
-  
-  .subnotescategory {
-    margin-bottom: 10px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /*섹션 높이 자동 조절 */
+  text-align: center;
+  flex-direction: column;
+  margin: 30px 20px 20px;
+}
+.mainnotes {
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mainimg {
+  width: 700px;
+  height: auto;
+  object-fit: cover;
+  padding: 10px;
+  max-width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+.subnotescategory {
+  margin-bottom: 10px;
+}
+
+.subnotes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* 화면 폭이 768px 미만일 때 subnotes 내의 요소들을 세로로 배치.*/
+@media (max-width: 768px) {
   .subnotes {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  /* 화면 폭이 768px 미만일 때 subnotes 내의 요소들을 세로로 배치.*/
-  @media (max-width: 768px) {
-    .subnotes {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
-  .subimg-contants {
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
-  h5 {
-    margin-top: 10px;
-  }
-  
-  .subimg {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    width: 100%;
-  }
+}
+
+.subimg-contants {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h5 {
+  margin-top: 10px;
+}
+
+.subimg {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
