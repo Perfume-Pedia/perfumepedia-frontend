@@ -6,17 +6,9 @@ export default function Footer() {
   return (
     <footer>
       <div className="footer-content">
-        <div className="footer-section">
-          <img src="img/logo1.jpg" alt="" />
-        </div>
-        <div className="footer-section">
-          <p>Home</p>
-          <p>Notes</p>
-          <p>perfumes</p>
-        </div>
-        <div className="footer-section">
-          <h4>Contact</h4>
-          <p>소셜 미디어 아이콘 및 링크</p>
+        <h2>PerfumePedia</h2>
+        <div className="footer-contact">
+          <img src="img/github-mark-white.png" alt="github"></img>
         </div>
       </div>
       <div className="footer-bottom">
@@ -24,5 +16,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-  //return <div className="footer"></div>;
 }
