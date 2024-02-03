@@ -1,32 +1,51 @@
-.perfume-img-section{
-    display: flex;
-    align-items: center; 
-    justify-content: flex-start;
-    padding: 20px;
+.perfume-img-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
 }
 
-.perfume-img{
-    max-width: 45%;
-    height: auto; 
-    padding: 20px;
+.perfume-img {
+  max-width: 45%;
+  height: auto;
+  padding: 20px;
 }
 
-.perfume-text{
-    max-width: 100%;
-    margin-right: 100px;
+.bookmark-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 21px;
 }
 
+.bookmark-img {
+  height: 25px;
+  width: auto;
+  max-width: none;
+  cursor: pointer;
+}
 
-.perfume-text, .etc-section p {
-    word-break: break-all; 
+.perfume-text {
+  position: relative;
+  max-width: 100%;
+  margin-right: 100px;
+}
+
+.perfume-text,
+.etc-section p {
+  word-break: break-all;
+}
+
+.perfume-header {
+  margin-top: 25px;
 }
 
 .link {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }

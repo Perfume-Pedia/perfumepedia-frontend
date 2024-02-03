@@ -8,7 +8,7 @@ export default function Navbar() {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-  const location = useLocation(); // 현재 위치를 알아내기 위해 useLocation 사용
+  const location = useLocation();
 
   const handleItemClick = (searchKeyword) => {
     navigate(`/search?keyword=${encodeURIComponent(searchKeyword)}`);
@@ -29,11 +29,7 @@ export default function Navbar() {
     try {
       setLoading(true);
 
-      const response = await fetch(
-        `http://perfume-pedia.site:3000/api/autocomplete?keyword=${encodeURIComponent(
-          keyword
-        )}`
-      );
+      const response = await fetch(`http://perfume-pedia.site:3000/api/autocomplete?keyword=${encodeURIComponent(keyword)}`);
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -69,19 +65,13 @@ export default function Navbar() {
     <div className="navbar">
       <div className="navbar-logo">
         <Link to="/" className="nav-link">
-          PerfumePedia📓
+          PerfumePedia
         </Link>
       </div>
       {!isHome && ( // 홈 화면이 아닐 때만 검색창 표시
         <form onSubmit={handleSearchSubmit} className="search-form">
-          <input
-            type="text"
-            placeholder="향수 또는 원하는 노트를 입력하세요."
-            value={searchTerm}
-            onChange={handleInputChange}
-            className="search-input"
-          />
-          {loading && <div>Loading...</div>}
+          <input type="text" placeholder="향수 또는 원하는 노트를 입력하세요." value={searchTerm} onChange={handleInputChange} className="search-input" />
+          {loading && ""}
           {suggestions.length > 0 && (
             <ul>
               {suggestions.map((item, index) => (
@@ -97,9 +87,7 @@ export default function Navbar() {
           </button>
         </form>
       )}
-      <Link to="/" className="nav-link">
-        Home
-      </Link>
+
       <Link to="/notes" className="nav-link">
         Notes
       </Link>
@@ -107,6 +95,9 @@ export default function Navbar() {
         Perfumes
       </Link>
       {/* <Link to="/search" className="nav-link">Search</Link> */}
+      <Link to="/mypage" className="nav-link">
+        MyPage
+      </Link>
     </div>
   );
 }
