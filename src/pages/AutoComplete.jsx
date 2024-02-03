@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../pages/AutoComplete.css";
 
-export default function AutoComplete({
-  onSearchSubmit,
-  onChange,
-  currentKeyword,
-}) {
+export default function AutoComplete({ onSearchSubmit, onChange, currentKeyword }) {
   const [keyword, setKeyword] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -28,11 +24,7 @@ export default function AutoComplete({
       try {
         setLoading(true);
 
-        const response = await fetch(
-          `http://perfume-pedia.site:3000/api/autocomplete?keyword=${encodeURIComponent(
-            keyword
-          )}`
-        );
+        const response = await fetch(`http://perfume-pedia.site:3000/api/autocomplete?keyword=${encodeURIComponent(keyword)}`);
 
         if (!response.ok) {
           throw new Error("Network response was not ok");

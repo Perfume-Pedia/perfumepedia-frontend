@@ -27,11 +27,7 @@ export default function Main() {
     try {
       setLoading(true);
 
-      const response = await fetch(
-        `http://perfume-pedia.site:3000/api/autocomplete?keyword=${encodeURIComponent(
-          keyword
-        )}`
-      );
+      const response = await fetch(`http://perfume-pedia.site:3000/api/autocomplete?keyword=${encodeURIComponent(keyword)}`);
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -61,14 +57,8 @@ export default function Main() {
     <section>
       <div className="main">
         <form onSubmit={handleSearchSubmit} className="search-form">
-          <input
-            type="text"
-            placeholder="향수 또는 원하는 노트를 입력하세요"
-            value={searchTerm}
-            onChange={handleInputChange}
-            className="search-input"
-          />
-          {loading && <div>Loading...</div>}
+          <input type="text" placeholder="향수 또는 원하는 노트를 입력하세요" value={searchTerm} onChange={handleInputChange} className="search-input" />
+          {loading && ""}
           {suggestions.length > 0 && (
             <ul>
               {suggestions.map((item, index) => (
@@ -83,11 +73,7 @@ export default function Main() {
             🔍
           </button>
         </form>
-        <img
-          src="/img/logo1.jpg"
-          alt=""
-          style={{ height: "800px", width: "auto" }}
-        />
+        <img src="/img/logo1.jpg" alt="" style={{ height: "800px", width: "auto" }} />
       </div>
     </section>
   );
