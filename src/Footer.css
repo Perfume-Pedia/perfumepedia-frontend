@@ -13,6 +13,13 @@ footer {
   margin: 0 auto;
 }
 
+.footer-logo {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: Raleway;
+  margin-bottom: 10px;
+}
+
 .footer-contact img {
   width: 30px;
   height: 30px;

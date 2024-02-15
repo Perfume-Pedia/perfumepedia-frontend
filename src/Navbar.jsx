@@ -76,7 +76,6 @@ export default function Navbar() {
             <ul>
               {suggestions.map((item, index) => (
                 <li key={index} onClick={() => handleItemClick(item.keyword)}>
-                  {" "}
                   {item.keyword}
                 </li>
               ))}
@@ -94,7 +93,6 @@ export default function Navbar() {
       <Link to="/perfumes" className="nav-link">
         Perfumes
       </Link>
-      {/* <Link to="/search" className="nav-link">Search</Link> */}
       <Link to="/mypage" className="nav-link">
         MyPage
       </Link>

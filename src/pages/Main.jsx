@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../pages/Main.css";
 
@@ -63,7 +63,6 @@ export default function Main() {
             <ul>
               {suggestions.map((item, index) => (
                 <li key={index} onClick={() => handleItemClick(item.keyword)}>
-                  {" "}
                   {item.keyword}
                 </li>
               ))}

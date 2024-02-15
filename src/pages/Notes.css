@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Pretendard;
+}
+
 div {
   white-space: pre-wrap;
 }
@@ -10,6 +17,11 @@ div {
   flex-direction: column;
   margin: 30px 20px 20px;
 }
+
+.notesection p {
+  margin-bottom: 10px;
+}
+
 .mainnotes {
   align-items: center;
   margin-bottom: 20px;

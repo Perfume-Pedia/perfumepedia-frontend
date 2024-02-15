@@ -186,8 +186,8 @@ export default function Notes() {
       {/* 애니멀 */}
       <section className="notesection">
         <div className="mainnotes">
-          <img className="mainimg" src="img/notes/animal.jpg" alt="애니멀" />
           <h3>애니멀릭 노트</h3>
+          <img className="mainimg" src="img/notes/animal.jpg" alt="애니멀" />
         </div>
         <p>
           옛날에는 동물에서 직접 추출한 향을 사용했지만, 최근에는 합성향료로 대체되고 있다.
