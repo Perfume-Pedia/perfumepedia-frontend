@@ -9,7 +9,7 @@ export default function Perfumes() {
           <img className="img" src="/img/brand_logo/aesop.png" alt="Aesop" />
         </div>
         <div className="right-section">
-          <h1 className="text">Aesop</h1>
+          <h1 className="perfume-brand">Aesop</h1>
           <p className="text">
             이솝 보러가기&nbsp;
             <img className="arrow" src="/img/left-arrow.png" alt="arrow" />
@@ -19,7 +19,7 @@ export default function Perfumes() {
 
       <section className="grey">
         <div className="left-section">
-          <h1 className="text">acqua di parma</h1>
+          <h1 className="perfume-brand">acqua di parma</h1>
 
           <p className="text">
             <img className="arrow" src="/img/right-arrow.png" alt="arrow" />
@@ -36,7 +36,7 @@ export default function Perfumes() {
           <img className="img" src="/img/brand_logo/byredo.png" alt="byredo" />
         </div>
         <div className="right-section">
-          <h1 className="text">Byredo</h1>
+          <h1 className="perfume-brand">Byredo</h1>
           <p className="text">
             바이레도 보러가기&nbsp;
             <img className="arrow" src="/img/left-arrow.png" alt="arrow" />
@@ -46,7 +46,7 @@ export default function Perfumes() {
 
       <section className="grey">
         <div className="left-section">
-          <h1 className="text">Creed</h1>
+          <h1 className="perfume-brand">Creed</h1>
           <p className="text">
             <img className="arrow" src="/img/right-arrow.png" alt="arrow" />
             &nbsp;크리드 보러가기
@@ -62,7 +62,7 @@ export default function Perfumes() {
           <img className="img" src="/img/brand_logo/diptyque.png" alt="diptyque" />
         </div>
         <div className="right-section">
-          <h1 className="text">Diptyque</h1>
+          <h1 className="perfume-brand">Diptyque</h1>
           <p className="text">
             딥디크 보러가기&nbsp;
             <img className="arrow" src="/img/left-arrow.png" alt="arrow" />
@@ -72,7 +72,7 @@ export default function Perfumes() {
 
       <section className="grey">
         <div className="left-section">
-          <h1 className="text">Frederic malle</h1>
+          <h1 className="perfume-brand">Frederic malle</h1>
           <p className="text">
             <img className="arrow" src="/img/right-arrow.png" alt="arrow" />
             &nbsp;프레드릭말 보러가기
@@ -88,7 +88,7 @@ export default function Perfumes() {
           <img className="img" src="/img/brand_logo/jomalone.png" alt="jomalone" />
         </div>
         <div className="right-section">
-          <h1 className="text">Jomalone</h1>
+          <h1 className="perfume-brand">Jomalone</h1>
           <p className="text">
             조말론 보러가기&nbsp;
             <img className="arrow" src="/img/left-arrow.png" alt="arrow" />
@@ -98,7 +98,7 @@ export default function Perfumes() {
 
       <section className="grey">
         <div className="left-section">
-          <h1 className="text">le labo</h1>
+          <h1 className="perfume-brand">le labo</h1>
           <p className="text">
             <img className="arrow" src="/img/right-arrow.png" alt="arrow" />
             &nbsp;르라보 보러가기
@@ -114,7 +114,7 @@ export default function Perfumes() {
           <img className="img" src="/img/brand_logo/lepersona.png" alt="le persona" />
         </div>
         <div className="right-section">
-          <h1 className="text">le persona</h1>
+          <h1 className="perfume-brand">le persona</h1>
           <p className="text">
             르 페르소나 보러가기&nbsp;
             <img className="arrow" src="/img/left-arrow.png" alt="arrow" />
@@ -124,7 +124,7 @@ export default function Perfumes() {
 
       <section className="grey">
         <div className="left-section">
-          <h1 className="text">maison-margiela</h1>
+          <h1 className="perfume-brand">maison-margiela</h1>
           <p className="text">
             <img className="arrow" src="/img/right-arrow.png" alt="arrow" />
             &nbsp;메종 마르지엘라 보러가기
@@ -140,7 +140,7 @@ export default function Perfumes() {
           <img className="img" src="/img/brand_logo/Penhaligon's.png" alt="Penhaligon's" />
         </div>
         <div className="right-section">
-          <h1 className="text">Penhaligon's</h1>
+          <h1 className="perfume-brand">Penhaligon's</h1>
           <p className="text">
             펜할리곤스 보러가기&nbsp;
             <img className="arrow" src="/img/left-arrow.png" alt="arrow" />
@@ -150,7 +150,7 @@ export default function Perfumes() {
 
       <section className="grey">
         <div className="left-section">
-          <h1 className="text">Santa maria novella</h1>
+          <h1 className="perfume-brand">Santa maria novella</h1>
           <p className="text">
             <img className="arrow" src="/img/right-arrow.png" alt="arrow" />
             &nbsp;산타마리아노벨라 보러가기
@@ -166,7 +166,7 @@ export default function Perfumes() {
           <img className="img" src="/img/brand_logo/tom-ford.png" alt="tomford" />
         </div>
         <div className="right-section">
-          <h1 className="text">tom ford</h1>
+          <h1 className="perfume-brand">tom ford</h1>
           <p className="text">
             톰포드 보러가기&nbsp;
             <img className="arrow" src="/img/left-arrow.png" alt="arrow" />
